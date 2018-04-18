@@ -9,7 +9,7 @@ BucketView.prototype.addCountry = function(country){
 
 BucketView.prototype.clear = function(country){
   this.countries = [];
-  const ul = document.querySelector(#countries);
+  const ul = document.querySelector("#countries");
   ul.innerHTML = '';
 };
 
