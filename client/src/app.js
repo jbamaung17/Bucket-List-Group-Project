@@ -1,10 +1,35 @@
-// Make Map
+const Request = require('./services/request.js');
+const BucketView = require('./views/bucket.js');
 
-var initializeMap = function(country){
-  var mapDiv = document.getElementById('bucket-map');
-  var center = {lat: country.lat, lng: country.lng};
-  var mainMap = new MapWrapper(mapDiv, center, 16);
+const bucketView = new BucketView();
+const requestBucket = new Request('http://localhost:3000/api/bucket');
+const requestCountries = new Request('https://restcountries.eu/rest/v2/all');
 
 
-  mainMap.addInfoWindow(center, `<h2>${country.name}</h2>`; //+
+const getCountriesComplete = function(countries) {
+  countryView.createCountryDropdown(countries);
 }
+
+
+const appStart = function() {
+  console.log("DOM content loaded, app starting... ");
+  requestCountries.get(getCountriesComplete);
+
+  const dropDown = document.querySelector("#select-country");
+  dropDown.addEventListener("change", function(event) {
+    console.log(event);
+  })
+
+  // Make Map
+
+  const initializeMap = function(country) {
+    const mapDiv = document.getElementById('bucket-map');
+    const center = { lat: country.lat, lng: country.lng };
+    const mainMap = new MapWrapper(mapDiv, center, 16);
+
+
+    mainMap.addInfoWindow(center, `<h2>${country.name}</h2>`); //+
+  }
+}
+
+document.addEventListener('DOMContentLoaded', appStart);
