@@ -2,7 +2,7 @@ const Request = require('./services/request.js');
 const CountryView = require('./views/countryView.js');
 const MapWrapper = require('./views/mapWrapper.js');
 
-const allCountriesRequest = new Request("https://restcountries.eu/rest/v2/all")
+const countriesRequest = new Request("https://restcountries.eu/rest/v2/all")
 const dbrequest = new Request("/api/countries");
 
 const countryView = new CountryView();
@@ -21,16 +21,16 @@ const getCountryDetails = function(country) {
   return countryDetails;
 }
 
-const populateCountriesList = function(allCountries) {
+const populateList = function(countries) {
 
-  const countrySelector = document.getElementById('select-country');
+  const selector = document.getElementById('select-country');
 
-  for (let country of allCountries) {
+  for (let country of countries) {
     const option = document.createElement('option');
     const countryDetails = getCountryDetails(country);
     option.value = JSON.stringify(countryDetails); // value is JSON object
     option.innerText = country.name;
-    countrySelector.appendChild(option);
+    selector.appendChild(option);
   }
 
 }
@@ -60,30 +60,16 @@ const initializeMap = function() {
   const map = new MapWrapper(container, center, zoom);
 };
 
-
-
-
 const clearBucketList = function() {
   dbrequest.delete(countryView.clearList);
 }
 
 
 const app = function() {
-  allCountriesRequest.get(populateCountriesList);
+  countriesRequest.get(populateList);
   initializeMap();
-  dbrequest.get(populateBucketList)
+  dbrequest.get(populateBucketList);
 
-
-  const selectCountryButton = document.getElementById('select-country-button');
-  selectCountryButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    saveCountry();
-  });
-
-  const selectClearButton = document.getElementById('clear-list');
-  selectClearButton.addEventListener('click', clearBucketList)
-};
-
-
+}
 
 document.addEventListener('DOMContentLoaded', app);
