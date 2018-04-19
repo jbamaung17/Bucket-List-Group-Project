@@ -67,7 +67,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected token (28:38)\nYou may need an appropriate loader to handle this file type.\n| }\n| \n| const deleteRequestComplete = function{\n|   BucketView.clear();\n| }");
+throw new Error("Module parse failed: Unexpected character '‘' (1:24)\nYou may need an appropriate loader to handle this file type.\n| const Request = require(‘./services/request.js’);\n| const CountryView = require(‘./views/countryView.js’);\n| const MapWrapper = require(‘./views/mapWrapper.js’);");
 
 /***/ })
 /******/ ]);
