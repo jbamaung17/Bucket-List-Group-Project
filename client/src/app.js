@@ -7,7 +7,7 @@ const requestCountries = new Request('https://restcountries.eu/rest/v2/all');
 
 
 const getCountriesComplete = function(countries) {
-  countryView.createCountryDropdown(countries);
+  bucketView.populateSelect(countries);
 }
 
 
@@ -15,10 +15,7 @@ const appStart = function() {
   console.log("DOM content loaded, app starting... ");
   requestCountries.get(getCountriesComplete);
 
-  const dropDown = document.querySelector("#select-country");
-  dropDown.addEventListener("change", function(event) {
-    console.log(event);
-  })
+
 
   // Make Map
 
@@ -26,7 +23,6 @@ const appStart = function() {
     const mapDiv = document.getElementById('bucket-map');
     const center = { lat: country.lat, lng: country.lng };
     const mainMap = new MapWrapper(mapDiv, center, 16);
-
 
     mainMap.addInfoWindow(center, `<h2>${country.name}</h2>`); //+
   }

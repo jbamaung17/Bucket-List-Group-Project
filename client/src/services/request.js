@@ -9,9 +9,10 @@ Request.prototype.get = function(callback){
     if(this.status !== 200) {
       return;
     }
-    const responseBody = json.parse(this.responseText);
+    const responseBody = JSON.parse(this.responseText);
     callback(responseBody);
-  })
+  });
+
   request.send();
 };
 
