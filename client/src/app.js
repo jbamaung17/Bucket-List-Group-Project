@@ -66,12 +66,11 @@ const createRequestComplete = function(response){
  countryView.addCountry(reponse);
 }
 
-const deleteButtonClicked =
-function(){
+const deleteButtonClicked = function(){
  request.delete(deleteRequestComplete);
 }
 
-const deleteRequestComplete = function {
+const deleteRequestComplete = function () {
  countryView.clear();
 }
 
