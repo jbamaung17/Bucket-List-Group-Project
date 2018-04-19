@@ -185,3 +185,5 @@ MapWrapper.prototype.geoLocate = function () {
     this.addMarker(center);
   }.bind(this));
 }
+
+module.exports = MapWrapper;
