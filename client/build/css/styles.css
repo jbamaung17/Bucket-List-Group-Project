@@ -17,9 +17,9 @@ h1.replace {
   background: url(../img/bucket.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  width: 300px;
-  height: 75px;
-  margin: 0 auto;
+  width: 136px;
+  height: 115px;
+  margin: 0 auto 20px;
 }
 
 #bucket-map {
@@ -34,17 +34,24 @@ h1.replace {
 main {
   position: relative;
   z-index: 2;
-  width: 300px;
+  width: 320px;
   margin: 60px 30px 0;
   padding: 10px;
-  background: #e4e4e4;
+  background: #e6e6e6;
   height: auto;
  /* opacity: .45;*/
-  color: white;
+  color: #444;
+  border-radius: 10px
 }
 
 #country-list {
   text-align: justify;
-  text-shadow: 3px 2px black;
-  font-size: 25px;
+  text-shadow: 1px 1px #fcfcfc;
+  font-size: 15px;
+  list-style: none;
 }
+
+.countryName { margin: 0 0 10px 20px; }
+.country-list-item { margin: 0 0 10px 5px; }
+
+#country-list {padding: 10px;}

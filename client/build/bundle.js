@@ -127,7 +127,7 @@ const initializeMap = function() {
   const container = document.getElementById("bucket-map");
   const center = { lat: 0, lng: 0 };
   const zoom = 2;
-  const map = new MapWrapper(container, center, zoom);
+  const map = new MapWrapper(container, center, 4);
 };
 
 
@@ -220,48 +220,43 @@ module.exports = Request;
 /* 2 */
 /***/ (function(module, exports) {
 
-const CountryView = function(){
+const CountryView = function() {
   this.countries = [];
 }
 
-CountryView.prototype.addCountry = function (country) {
+CountryView.prototype.addCountry = function(country) {
   this.countries.push(country);
   this.render(country);
 };
 
-CountryView.prototype.render = function (country) {
+CountryView.prototype.render = function(country) {
   const bucketList = document.getElementById('country-list');
 
   const li = this.formatCountryData(country);
   bucketList.appendChild(li);
 };
 
-CountryView.prototype.formatCountryData = function (country) {
-    const li = document.createElement('li');
-    country.className = 'country-list-item';
-    // name
-    const name = document.createElement('p');
-    name.className = 'countryName';
-    name.innerText = country.name;
-    // capital
-    const capital = document.createElement('p');
-    capital.innerText = `Capital: ${country.capital}`;
-    // population
-    const pop = document.createElement('p');
-    pop.innerText = `Population: ${country.population}`;
-    // flag
-    const flag = document.createElement('img');
-    flag.className = 'flag-img';
-    flag.setAttribute("width", 100)
-    flag.src = country.flag;
+CountryView.prototype.formatCountryData = function(country) {
+  const li = document.createElement('li');
+  li.className = 'country-list-item';
+  const span = document.createElement('span')
+  // name
+  const name = document.createElement('span');
+  name.className = 'countryName';
+  name.innerText = `${country.name}`;
 
-
-    [name, capital, pop, flag].forEach(element => li.appendChild(element));
-
-    return li;
+  // flag
+  const flag = document.createElement('img');
+  flag.className = 'flag-img';
+  flag.setAttribute("width", 50)
+  flag.src = country.flag;
+  li.appendChild(span);
+  span.appendChild(flag);
+  span.appendChild(name);
+  return li;
 };
 
-CountryView.prototype.clearList = function () {
+CountryView.prototype.clearList = function() {
   this.countries = [];
   const bucketList = document.getElementById('bucket-list');
   bucketList.innerHTML = "";

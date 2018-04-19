@@ -58,7 +58,7 @@ const initializeMap = function() {
   const container = document.getElementById("bucket-map");
   const center = { lat: 0, lng: 0 };
   const zoom = 2;
-  const map = new MapWrapper(container, center, zoom);
+  const map = new MapWrapper(container, center, 4);
 };
 
 
