@@ -59,17 +59,45 @@ const initializeMap = function() {
   const zoom = 2;
   const map = new MapWrapper(container, center, zoom);
 };
+const countrySelected = function(event){
+  const country = document.querySelector("#option").value;
+
+  request.post(createRequestComplete, country);
+}
+
+const createRequestComplete = function(response){
+  BucketView.addCountry(reponse);
+}
+
+const deleteButtonClicked =
+function(){
+  request.delete(deleteRequestComplete);
+}
+
+const deleteRequestComplete = function{
+  BucketView.clear();
+}
+
 
 const clearBucketList = function() {
   dbrequest.delete(countryView.clearList);
 }
 
 
-const app = function() {
+const appStart = function() {
   countriesRequest.get(populateList);
   initializeMap();
   dbrequest.get(populateBucketList);
 
 }
 
-document.addEventListener('DOMContentLoaded', app);
+  const whenCountrySelected = document.querySelector("#country-select");
+  countrySelected.addEventListener("change", countrySelected);
+
+
+  const whenDeleteButtonClicked =
+  document.querySelector("#delete-button");
+  whenDeleteButtonClicked.addEventListener("click", deleteButtonClicked);
+
+
+document.addEventListener('DOMContentLoaded', appStart);
