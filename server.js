@@ -21,7 +21,7 @@ MongoClient.connect("mongodb://localhost:27017", function(err, client) {
 
 
 
-  server.post("/countries", function(req, res){
+  server.post("/api/countries", function(req, res){
     const countriesCollection = db.collection("countries");
     const countryToSave = req.body;
 
@@ -39,7 +39,7 @@ MongoClient.connect("mongodb://localhost:27017", function(err, client) {
 
 
 
-  server.get("/countries", function(req, res){
+  server.get("/api/countries", function(req, res){
     const countriesCollection = db.collection("countries");
 
     countriesCollection.find().toArray(function(err, allCountries){
@@ -53,7 +53,7 @@ MongoClient.connect("mongodb://localhost:27017", function(err, client) {
   });
 
 
-  server.delete("/countries", function(req, res){
+  server.delete("/api/countries", function(req, res){
     const countriesCollection = db.collection("countries");
     const filterObject = {};
 
