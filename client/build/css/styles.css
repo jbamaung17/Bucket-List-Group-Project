@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,700|Oswald:400,500,700');
 
+
 body {
   background-color: white;
   font-family: "Open Sans", sans-serif;
@@ -40,4 +41,10 @@ main {
   height: auto;
  /* opacity: .45;*/
   color: white;
+}
+
+#country-list {
+  text-align: justify;
+  text-shadow: 3px 2px black;
+  font-size: 25px;
 }

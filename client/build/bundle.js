@@ -67,7 +67,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected token (19:0)\nYou may need an appropriate loader to handle this file type.\n| \n| document.addEventListener('DOMContentLoaded', appStart);\n| ");
+throw new Error("Module parse failed: Unexpected token (28:38)\nYou may need an appropriate loader to handle this file type.\n| }\n| \n| const deleteRequestComplete = function{\n|   BucketView.clear();\n| }");
 
 /***/ })
 /******/ ]);
