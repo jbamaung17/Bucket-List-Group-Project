@@ -110,8 +110,9 @@ const populateBucketList = function(countries) {
 
 
 const saveCountry = function() {
-  const countrySelector = document.getElementById('country-select');
-  const selectedCountryJSON = countrySelector.value;
+  const selector = document.getElementById('country-select');
+  const selectedCountryJSON = selector.value;
+  console.log("selector", selector.value);
   const selectedCountryObj = JSON.parse(selectedCountryJSON);
 
   dbrequest.post(saveRequestComplete, selectedCountryObj);
@@ -144,12 +145,12 @@ const app = function() {
 
 
   const selectCountryButton = document.getElementById('country-select');
-  selectCountryButton.addEventListener('click', function(event) {
+  selectCountryButton.addEventListener('change', function(event) {
     event.preventDefault();
     saveCountry();
   });
 
-  const selectClearButton = document.getElementById('clear-list');
+  const selectClearButton = document.getElementById('delete-button');
   selectClearButton.addEventListener('click', clearBucketList)
 };
 
