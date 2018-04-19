@@ -8,7 +8,7 @@ CountryView.prototype.addCountry = function (country) {
 };
 
 CountryView.prototype.render = function (country) {
-  const bucketList = document.getElementById('bucket-list');
+  const bucketList = document.getElementById('country-list');
 
   const li = this.formatCountryData(country);
   bucketList.appendChild(li);
