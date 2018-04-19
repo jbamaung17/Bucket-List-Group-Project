@@ -148,6 +148,7 @@ const app = function() {
   selectCountryButton.addEventListener('change', function(event) {
     event.preventDefault();
     saveCountry();
+    console.log(event);
   });
 
   const selectClearButton = document.getElementById('delete-button');
@@ -251,6 +252,7 @@ CountryView.prototype.formatCountryData = function (country) {
     // flag
     const flag = document.createElement('img');
     flag.className = 'flag-img';
+    flag.setAttribute("width", 100)
     flag.src = country.flag;
 
 

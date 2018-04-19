@@ -30,6 +30,7 @@ CountryView.prototype.formatCountryData = function (country) {
     // flag
     const flag = document.createElement('img');
     flag.className = 'flag-img';
+    flag.setAttribute("width", 100)
     flag.src = country.flag;
 
 

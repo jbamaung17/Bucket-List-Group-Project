@@ -79,6 +79,7 @@ const app = function() {
   selectCountryButton.addEventListener('change', function(event) {
     event.preventDefault();
     saveCountry();
+    console.log(event);
   });
 
   const selectClearButton = document.getElementById('delete-button');
