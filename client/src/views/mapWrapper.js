@@ -1,4 +1,6 @@
-var MapWrapper = function (container, coords, zoom) {
+
+
+const MapWrapper = function (container, coords, zoom) {
   this.googleMap = new google.maps.Map(container, {
     center: coords,
     zoom: zoom,
@@ -148,7 +150,7 @@ var MapWrapper = function (container, coords, zoom) {
 
 MapWrapper.prototype.addMarker = function (coords) {
   var bucketImage = {
-    url: 'bicycle.svg',
+    url: 'bucket.svg',
     scaledSize: new google.maps.Size(35, 35)
 };
 
@@ -178,6 +180,17 @@ MapWrapper.prototype.addInfoWindow = function (coords, text) {
   });
 }
 
+  // Make Map
+
+MapWrapper.prototype.initializeMap = function(country) {
+    const mapDiv = document.getElementById('bucket-map');
+    const center = { lat: country.lat, lng: country.lng };
+    const mainMap = new MapWrapper(mapDiv, center, 16);
+
+    mainMap.addInfoWindow(center, `<h2>${country.name}</h2>`); //+
+  }
+
+
 MapWrapper.prototype.geoLocate = function () {
   navigator.geolocation.getCurrentPosition(function (position) {
     var center = { lat: position.coords.latitude, lng: position.coords.longitude };
@@ -185,3 +198,5 @@ MapWrapper.prototype.geoLocate = function () {
     this.addMarker(center);
   }.bind(this));
 }
+
+module.exports = MapWrapper;

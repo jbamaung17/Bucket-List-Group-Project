@@ -12,21 +12,25 @@
 </head>
 
 <body>
-<!--   <div id="bucket-map"></div>
- -->  <main>
+  <div id="bucket-map"></div>
+  <main>
     <div class="block">
       <div id="logo">
         <div id='header'>
           <h1 class="replace"></h1>
         </div>
         <div class='select'>
-          <select id='country-select'>
-            <option disabled selected value> -- Pick a location -- </option>
-          </select>
-          <div id="country-list">
-          </div>
+          <form>
+            <select name="select-country" id="country-select">
+              <option disabled selected value> -- Pick a location -- </option>
+            </select>
+            <!-- <button id="select-country-button" type="submit">Add to Bucket List</button> -->
+          </form>
+        </div>
+        <div id="country-list">
         </div>
       </div>
+    </div>
     </div>
   </main>
 </body>
