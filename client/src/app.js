@@ -23,7 +23,7 @@ const getCountryDetails = function(country) {
 
 const populateCountriesList = function(allCountries) {
 
-  const countrySelector = document.getElementById('select-country');
+  const countrySelector = document.getElementById('country-select');
 
   for (let country of allCountries) {
     const option = document.createElement('option');
@@ -41,7 +41,7 @@ const populateBucketList = function(countries) {
 
 
 const saveCountry = function() {
-  const countrySelector = document.getElementById('select-country');
+  const countrySelector = document.getElementById('country-select');
   const selectedCountryJSON = countrySelector.value;
   const selectedCountryObj = JSON.parse(selectedCountryJSON);
 
@@ -74,7 +74,7 @@ const app = function() {
   dbrequest.get(populateBucketList)
 
 
-  const selectCountryButton = document.getElementById('select-country-button');
+  const selectCountryButton = document.getElementById('country-select');
   selectCountryButton.addEventListener('click', function(event) {
     event.preventDefault();
     saveCountry();
@@ -86,4 +86,4 @@ const app = function() {
 
 
 
-document.addEventListener('DOMContentLoaded', app);
+document.addEventListener('DOMContentLoaded', app)
