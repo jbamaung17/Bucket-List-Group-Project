@@ -67,7 +67,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-throw new Error("Module parse failed: Unexpected token (77:38)\nYou may need an appropriate loader to handle this file type.\n| }\n| \n| const deleteRequestComplete = function{\n|   BucketView.clear();\n| }");
+throw new Error("Module parse failed: Unexpected token (5:0)\nYou may need an appropriate loader to handle this file type.\n| const MapWrapper = require('./views/mapWrapper.js');\n| \n| <<<<<<< HEAD\n| const countriesRequest = new Request(\"https://restcountries.eu/rest/v2/all\")\n| =======");
 
 /***/ })
 /******/ ]);
