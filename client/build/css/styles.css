@@ -8,12 +8,14 @@ body {
   font-size: 14px;
 }
 
-h1.h5bp {
+h1.replace {
   border: 0;
   font: 0/0 a;
   text-shadow: none;
   color: transparent;
-  background: url(./bucket.png);
+  background: url(../img/bucket.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 260px;
   height: 75px;
   margin: 0 auto;
@@ -22,11 +24,20 @@ h1.h5bp {
 #bucket-map {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position:absolute;
   top: 0;
   left: 0;
   z-index: 0;
 }
 
-
+main {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  margin: 60px 30px 0;
+  padding: 10px;
+  background: #e4e4e4;
+  height: auto;
+ /* opacity: .45;*/
+  color: white;
 }
